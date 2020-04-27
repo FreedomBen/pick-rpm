@@ -1,0 +1,40 @@
+Name:           pick
+Version:        PICK_VERSION
+Release:        1%{?dist}
+Summary:        A fuzzy search tool for the command-line
+
+License:        MIT
+URL:            https://github.com/mptre/pick
+Source0:        PICK_VERSION_TARBALL
+# TODO: Have github tarball URL in Source0
+
+BuildRequires:  gcc make ncurses-devel
+#Requires:       curses
+
+%description
+Pick is a fuzzy search tool for the command-line.  Pick reads a list of choices from stdin and outputs the selected choice to stdout. Therefore it is easily used both in pipelines and subshells.  Pick can also be used from within Vim, see the pick.vim plugin.
+
+%prep
+%autosetup
+
+
+%build
+%configure --prefix /usr
+%make_build
+
+
+%install
+rm -rf $RPM_BUILD_ROOT
+%make_install
+
+
+%files
+%license LICENSE
+%doc README.md
+%{_bindir}/%{name}
+
+
+
+%changelog
+* Mon Apr 27 2020 Benjamin Porter <FreedomBen@users.noreply.github.com>
+- 
