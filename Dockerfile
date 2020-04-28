@@ -44,7 +44,9 @@ RUN cd rpmbuild/SOURCES/ \
 COPY pick.spec.tmpl template-to-spec.sh /home/rpmbuild/
 RUN /home/rpmbuild/template-to-spec.sh
 
-#RUN rpmbuild -ba rpmbuild/SPECS/${PICK_VERSION_SPEC_FILE}
-#RUN rpmbuild -bs rpmbuild/SPECS/${PICK_VERSION_SPEC_FILE}
+RUN rpmbuild -ba rpmbuild/SPECS/${PICK_VERSION_SPEC_FILE}
+RUN rpmbuild -bs rpmbuild/SPECS/${PICK_VERSION_SPEC_FILE}
 
-# Retrieve
+# Copy RPM files to home dir for easy extraction
+RUN mkdir -p /home/rpmbuild/rpms \
+ && mv rpmbuild/RPMS/x86_64/pick*.rpm rpmbuild/SRPMS/pick*.rpm /home/rpmbuild/rpms/

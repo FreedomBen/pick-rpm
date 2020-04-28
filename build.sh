@@ -26,21 +26,14 @@ podman build \
   .
 
 # Run rpmbuild
-#podman run \
-#  pick-rpm \
-#  /home/rpmbuild/rpmbuild/RPMS/build-rpm.sh
-#
+podman run \
+  -d \
+  --name pick-rpm \
+  pick-rpm
+
 ## Extract RPM files
-#podman cp pick-rpm:/home/rpmbuild/*.rpm ./
-#
-## Clean up exited container
-#podman rm pick-rpm
-#
-#
-## Download latest release
-#wget "https://github.com/mptre/pick/archive/${PICK_VERSION_TARBALL}"
-##tar xzvf "${PICK_VERSION_TARBALL}"
-#
-##cd "pick-${PICK_VERSION}"
-##./configure
-##make
+podman cp pick-rpm:/home/rpmbuild/rpms ./
+
+# Clean up container
+podman stop pick-rpm
+podman rm pick-rpm

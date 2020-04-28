@@ -1,0 +1,22 @@
+    Add %dump to first line to see all macros printed with -13 at beginning of line
+
+Better way to print all macros:
+
+    rpm --showrc
+
+See what a macro will evaluate to (https://rpm-packaging-guide.github.io/#more-on-macros):
+
+    $ rpm --eval %{__python2}
+    /usr/bin/python2
+
+    $ rpm --eval %{python2_sitearch}
+    /usr/lib64/python2.7/site-packages
+
+    $ rpm --eval %{python2_sitelib}
+    /usr/lib/python2.7/site-packages
+
+    $ rpm --eval %{python2_version}
+    2.7
+
+    $ rpm --eval %{python2_version_nodots}
+    27
