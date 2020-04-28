@@ -1,4 +1,6 @@
-FROM fedora:31
+ARG DISTRO
+ARG DISTRO_VER
+FROM ${DISTRO}:${DISTRO_VER}
 
 RUN dnf update -y \
  && dnf install -y \

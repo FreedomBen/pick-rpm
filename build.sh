@@ -2,38 +2,55 @@
 
 set -e
 
-# Figure out that latest version
-#PICK_VERSION=3.0.1
-PICK_VERSION="$(curl https://github.com/mptre/pick/releases/latest | awk -F '<' '{ print $4 }' | sed -e 's/.*v//g' | sed -e 's/".*//g')"
-PICK_VERSION_TARBALL="v${PICK_VERSION}.tar.gz"
-PICK_VERSION_SPEC_FILE="pick-v${PICK_VERSION}.spec"
+die ()
+{
+  echo "[FATAL]: $1" >&2
+  exit 1
+}
 
-echo "Latest pick version is: ${PICK_VERSION}"
-echo "Latest pick tarball is: ${PICK_VERSION_TARBALL}"
+ensure_args ()
+{
+  if [ -z "$1" ] || ! [[ $1 =~ ^(fedora|centos)$ ]]; then
+    die "First arg empty.  Should be distro:  fedora, centos"
+  fi
 
-# Generate spec file from template
-#cp pick.spec.tmpl "$PICK_VERSION_SPEC_FILE"
-#sed -i -e "s/PICK_VERSION_TARBALL/$PICK_VERSION_TARBALL/g" "$PICK_VERSION_SPEC_FILE"
-#sed -i -e "s/PICK_VERSION/$PICK_VERSION/g" "$PICK_VERSION_SPEC_FILE"
+  if [ -z "$2" ]; then
+    die "Second arg empty.  Should be distro version:  31, 32, 8.1, 8.2"
+  fi
 
-# Build container image
-podman build \
-  --build-arg PICK_VERSION=${PICK_VERSION} \
-  --build-arg PICK_VERSION_TARBALL=${PICK_VERSION_TARBALL} \
-  --build-arg PICK_VERSION_SPEC_FILE=${PICK_VERSION_SPEC_FILE} \
-  --tag pick-rpm \
-  --file Dockerfile \
-  .
+  if [ -z "$3" ]; then
+    die "Third arg empty.  Should be pick version or 'latest'"
+  fi
+}
 
-# Run rpmbuild
-podman run \
-  -d \
-  --name pick-rpm \
-  pick-rpm
+main ()
+{
+  ensure_args "$@"
 
-## Extract RPM files
-podman cp pick-rpm:/home/rpmbuild/rpms ./
+  # Build container image
+  podman build \
+    --build-arg DISTRO=${1} \
+    --build-arg DISTRO_VER=${2} \
+    --build-arg PICK_VERSION=${PICK_VERSION} \
+    --build-arg PICK_VERSION_TARBALL=${PICK_VERSION_TARBALL} \
+    --build-arg PICK_VERSION_SPEC_FILE=${PICK_VERSION_SPEC_FILE} \
+    --tag pick-rpm \
+    --file Dockerfile \
+    .
 
-# Clean up container
-podman stop pick-rpm
-podman rm pick-rpm
+  # Run rpmbuild
+  podman run \
+    -d \
+    --name pick-rpm \
+    pick-rpm
+
+  ## Extract RPM files
+  podman cp pick-rpm:/home/rpmbuild/rpms ./
+
+  # Clean up container
+  podman stop pick-rpm
+  podman rm pick-rpm
+}
+
+main "$@"
+
