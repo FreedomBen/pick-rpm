@@ -42,7 +42,7 @@ RUN rpmdev-setuptree
 RUN cd rpmbuild/SOURCES/ \
  && wget "https://github.com/mptre/pick/archive/${PICK_VERSION_TARBALL}"
 
-COPY pick.spec.tmpl template-to-spec.sh /home/rpmbuild/
+COPY pick.spec.tmpl /home/rpmbuild/
 RUN echo "Spec file is ${PICK_VERSION_SPEC_FILE}" \
  && cp pick.spec.tmpl "$PICK_VERSION_SPEC_FILE_FROM_HOME" \
  && sed -i -e "s/PICK_VERSION_TARBALL/$PICK_VERSION_TARBALL/g" "$PICK_VERSION_SPEC_FILE_FROM_HOME" \
