@@ -16,11 +16,9 @@ RUN dnf update -y \
     gpg* \
     rng-tools \
     wget \
-    curl
- #&& dnf clean all
-RUN dnf update -y \
- && dnf install -y \
-    ncurses-devel
+    curl \
+    ncurses-devel \
+ && dnf clean all
 
 RUN groupadd --gid 1000 rpmbuild \
  && useradd --uid 1000 --gid 1000 rpmbuild \
