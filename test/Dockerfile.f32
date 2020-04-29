@@ -1,0 +1,7 @@
+FROM fedora:32
+
+COPY rpms/ /tmp
+
+RUN cd /tmp \
+ && dnf install -y pick-4.0.0-1.fc32.x86_64.rpm \
+ && command -v pick

@@ -1,0 +1,7 @@
+FROM fedora:31
+
+COPY rpms/ /tmp
+
+RUN cd /tmp \
+ && dnf install -y pick-3.0.1-1.fc31.x86_64.rpm \
+ && command -v pick
