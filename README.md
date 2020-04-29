@@ -7,17 +7,15 @@ If you run Fedora and want to install the latest:
 Fedora 32 x86_64 - pick v4.0.0
 
 ```bash
-cd /tmp/
 wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v4.0.0/pick-4.0.0-1.fc32.x86_64.rpm'
-dnf install /tmp/pick-4.0.0-1.fc32.x86_64.rpm
+dnf install pick-4.0.0-1.fc32.x86_64.rpm
 ```
 
 Fedora 31 x86_64 - pick v3.0.1
 
 ```bash
-cd /tmp/
 wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v3.0.1/pick-3.0.1-1.fc31.x86_64.rpm'
-dnf install /tmp/pick-3.0.1-1.fc31.x86_64.rpm
+dnf install pick-3.0.1-1.fc31.x86_64.rpm
 ```
 
 This repository builds [pick](https://github.com/mptre/pick) RPMs for Fedora/RHEL/CentOS.
