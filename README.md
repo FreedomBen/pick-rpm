@@ -18,9 +18,6 @@ wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v3.0.1/pick-3.0.1
 dnf install pick-3.0.1-1.fc31.x86_64.rpm
 ```
 
-This repository builds [pick](https://github.com/mptre/pick) RPMs for Fedora/RHEL/CentOS.
-
-
 ## Building the RPMs
 
 There are a few scripts that will build RPMs.  You must have Podman installed to run them as the RPM build happens in a container.
