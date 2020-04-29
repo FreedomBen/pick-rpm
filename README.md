@@ -1,11 +1,11 @@
 # pick-rpm
 
-This repository builds an RPM for Fedora/RHEL/CentOS for [pick](https://github.com/mptre/pick).
+**If you are just looking for an RPM for [pick](https://github.com/mptre/pick), check the [Releases page](https://github.com/FreedomBen/pick-rpm/releases)**
 
-*If you're just looking for an RPM, check the [Releases page](https://github.com/FreedomBen/pick-rpm/releases)*
+This repository builds [pick](https://github.com/mptre/pick) RPMs for Fedora/RHEL/CentOS.
 
 
-## Building
+## Building the RPMs
 
 There are a few scripts that will build RPMs.  You must have Podman installed to run them as the RPM build happens in a container.
 
