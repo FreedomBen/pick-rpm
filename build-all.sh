@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
 
-set -e
+serial_build ()
+{
+  for pick_version in 4.0.0 3.0.1; do
+    # Fedora RPMs
+    for distro_version in 30 31 32; do
+      ./build.sh fedora "$distro_version" "$pick_version"
+    done
 
-for pick_version in 4.0.0 3.0.1 2.0.2; do
-  # Fedora RPMs
-  for distro_version in 30 31 32; do
-    ./build.sh fedora "$distro_version" "$pick_version"
+    # CentOS RPMs
+    for distro_version in 8; do
+      ./build.sh centos "$distro_version" "$pick_version"
+    done
   done
+}
 
-  # CentOS RPMs
-  for distro_version in 7 8; do
-    ./build.sh centos "$distro_version" "$pick_version"
-  done
-done
+# Use GNU Parallel to do multiple at a time
+parallel ./build-all-pick-version.sh {} ::: 4.0.0 3.0.1 2.0.2
 
+# Build serially
+#serial_build

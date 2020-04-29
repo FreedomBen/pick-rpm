@@ -8,7 +8,6 @@ RUN dnf update -y \
     rpm-devel \
     rpmlint \
     rpmdevtools \
-    coreutils \
     diffutils \
     patch \
     gcc \
@@ -17,8 +16,7 @@ RUN dnf update -y \
     rng-tools \
     wget \
     curl \
-    ncurses-devel \
- && dnf clean all
+    ncurses-devel
 
 RUN groupadd --gid 1000 rpmbuild \
  && useradd --uid 1000 --gid 1000 rpmbuild \
