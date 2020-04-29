@@ -1,7 +1,0 @@
-ARG DISTRO
-ARG DISTRO_VER
-FROM ${DISTRO}:${DISTRO_VER}
-
-COPY rpms/ /tmp/rpms
-
-RUN dnf install /tmp/

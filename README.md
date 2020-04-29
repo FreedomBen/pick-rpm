@@ -8,7 +8,7 @@ Fedora 32 x86_64 - pick v4.0.0
 
 ```bash
 cd /tmp/
-wget ''
+wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v4.0.0/pick-4.0.0-1.fc32.x86_64.rpm'
 dnf install /tmp/pick-4.0.0-1.fc32.x86_64.rpm
 ```
 
@@ -16,7 +16,7 @@ Fedora 31 x86_64 - pick v3.0.1
 
 ```bash
 cd /tmp/
-wget ''
+wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v3.0.1/pick-3.0.1-1.fc31.x86_64.rpm'
 dnf install /tmp/pick-3.0.1-1.fc31.x86_64.rpm
 ```
 
