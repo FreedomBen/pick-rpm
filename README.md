@@ -22,10 +22,10 @@ dnf install pick-3.0.1-1.fc31.x86_64.rpm
 
 There are a few scripts that will build RPMs.  You must have Podman installed to run them as the RPM build happens in a container.
 
-build.sh:  This is the entrypoint for a single build.
-build-all.sh:  Builds all versions of Pick for all supported distros.
-build-all-pick-versions.sh:  Builds RPMs for specified version of Pick for all supported distros.
-build-latest-version-f32.sh:  Builds latest pick version for Fedora 32.
+* `build.sh`:  This is the entrypoint for a single build.
+* `build-all.sh`:  Builds all versions of Pick for all supported distros.
+* `build-all-pick-versions.sh`:  Builds RPMs for specified version of Pick for all supported distros.
+* `build-latest-version-f32.sh`:  Builds latest pick version for Fedora 32.
 
 ## Will these be available in the repositories?
 
