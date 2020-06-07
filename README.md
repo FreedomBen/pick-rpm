@@ -38,7 +38,9 @@ Yes hopefully.  That is the goal.  The todo list:
 
 ## What about ARM?
 
-Coming soon, as long as pick will build on ARM
+~Coming soon, as long as pick will build on ARM~
+
+ARM RPMs are now available!  Get them on the [releases](https://github.com/FreedomBen/pick-rpm/releases) page.
 
 ## Why aren't these packages signed?
 
