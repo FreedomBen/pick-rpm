@@ -2,6 +2,8 @@
 
 set -e
 
+PODMAN="podman"
+
 die ()
 {
   echo "[FATAL]: $1" >&2
@@ -61,7 +63,7 @@ main ()
   set_args "$3"
 
   # Build container image
-  podman build \
+  $PODMAN build \
     --build-arg DISTRO=${1} \
     --build-arg DISTRO_VER=${2} \
     --build-arg PICK_VERSION=${PICK_VERSION} \
@@ -72,17 +74,17 @@ main ()
     .
 
   # Run rpmbuild
-  podman run \
+  $PODMAN run \
     -d \
     --name pick-rpm \
     pick-rpm
 
   ## Extract RPM files
-  podman cp pick-rpm:/home/rpmbuild/rpms ./
+  $PODMAN cp pick-rpm:/home/rpmbuild/rpms ./
 
   # Clean up container
-  podman stop pick-rpm
-  podman rm pick-rpm
+  $PODMAN stop pick-rpm
+  $PODMAN rm pick-rpm
 }
 
 main "$@"

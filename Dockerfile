@@ -51,4 +51,4 @@ RUN rpmbuild -bs ${PICK_VERSION_SPEC_FILE_FROM_HOME}
 
 # Copy RPM files to home dir for easy extraction
 RUN mkdir -p /home/rpmbuild/rpms \
- && mv rpmbuild/RPMS/x86_64/pick*.rpm rpmbuild/SRPMS/pick*.rpm /home/rpmbuild/rpms/
+ && mv rpmbuild/RPMS/*/pick*.rpm rpmbuild/SRPMS/pick*.rpm /home/rpmbuild/rpms/
