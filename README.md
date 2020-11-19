@@ -4,6 +4,13 @@
 
 If you run Fedora and want to install the latest:
 
+Fedora 33 x86_64 - pick v4.0.0
+
+```bash
+wget 'https://github.com/FreedomBen/pick-rpm/releases/download/v4.0.0/pick-4.0.0-1.fc33.x86_64.rpm'
+dnf install pick-4.0.0-1.fc33.x86_64.rpm
+```
+
 Fedora 32 x86_64 - pick v4.0.0
 
 ```bash
