@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT/usr/man
 - 4.0.0-2
 - Clean up rpmlint issues.  No source code changes
 
-* Mon Apr 28 2020 Benjamin Porter <bporter@redhat.com>
+* Tue Apr 28 2020 Benjamin Porter <bporter@redhat.com>
 - 4.0.0-1
 - Initial release, upstream 4.0.0
 
