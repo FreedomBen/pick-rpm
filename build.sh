@@ -53,7 +53,6 @@ set_args ()
     die "Pick version does not appear valid.  Can you double check?"
   fi
   export PICK_VERSION_TARBALL="v${PICK_VERSION}.tar.gz"
-  export PICK_VERSION_SPEC_FILE="pick-v${PICK_VERSION}.spec"
 }
 
 main ()
@@ -68,7 +67,6 @@ main ()
     --build-arg DISTRO_VER=${2} \
     --build-arg PICK_VERSION=${PICK_VERSION} \
     --build-arg PICK_VERSION_TARBALL=${PICK_VERSION_TARBALL} \
-    --build-arg PICK_VERSION_SPEC_FILE=${PICK_VERSION_SPEC_FILE} \
     --tag pick-rpm \
     --file Dockerfile \
     .
