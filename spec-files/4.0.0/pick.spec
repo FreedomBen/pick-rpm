@@ -1,6 +1,6 @@
 Name:           pick
 Version:        4.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A fuzzy search tool for the command-line
 
 License:        MIT
@@ -43,5 +43,14 @@ rm -rf $RPM_BUILD_ROOT/usr/man
 
 
 %changelog
-* Mon Apr 27 2020 Benjamin Porter <FreedomBen@users.noreply.github.com>
-- 
+* Tue Dec 29 2020 Benjamin Porter <bporter@redhat.com>
+- 4.0.0-2
+- Clean up rpmlint issues.  No source code changes
+
+* Mon Apr 28 2020 Benjamin Porter <bporter@redhat.com>
+- 4.0.0-1
+- Initial release, upstream 4.0.0
+
+* Mon Apr 27 2020 Benjamin Porter <bporter@redhat.com>
+- 3.0.1-1
+- Initial release, upstream 3.0.1

@@ -2,11 +2,12 @@
 
 copy_spec_file ()
 {
-  fname="pick-v${1}.spec"
-  ofname="spec-files/${fname}"
+  ofname="spec-files/${1}/pick.spec"
+  mkdir -p "$(dirname "$ofname")"
   cp pick.spec.tmpl "$ofname"
   sed -i -e "s/PICK_VERSION_TARBALL/v${1}.tar.gz/g" "$ofname"
   sed -i -e "s/PICK_VERSION/$1/g" "$ofname"
+  chmod 644 "$ofname" # rpmlint likes spec files to be 644
 }
 
 #copy_spec_file_per_distro ()
