@@ -11,7 +11,10 @@ BuildRequires:  gcc make ncurses-devel
 #Requires:       curses
 
 %description
-Pick is a fuzzy search tool for the command-line.  Pick reads a list of choices from stdin and outputs the selected choice to stdout. Therefore it is easily used both in pipelines and subshells.  Pick can also be used from within Vim, see the pick.vim plugin.
+Pick is a fuzzy search tool for the command-line.  Pick reads a list of choices
+from std in and outputs the selected choice to std out. Therefore it is easily
+used both in pipelines and sub shells.  Pick can also be used from within Vim,
+see the pick.vim plugin.
 
 %define debug_package %{nil}
 
