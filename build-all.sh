@@ -16,8 +16,12 @@ serial_build ()
   done
 }
 
-# Use GNU Parallel to do multiple at a time
-parallel ./build-all-pick-version.sh {} ::: 4.0.0 3.0.1 2.0.2
-
-# Build serially
-#serial_build
+if [[ $1 =~ [pP] ]]; then
+  # Use GNU Parallel to do multiple at a time
+  echo "Kicking off parallel builds (you won't see output until they finish)"
+  parallel ./build-all-pick-version.sh {} ::: 4.0.0 3.0.1 2.0.2
+else
+  # Build serially
+  echo "Kicking off builds serially"
+  serial_build
+fi
